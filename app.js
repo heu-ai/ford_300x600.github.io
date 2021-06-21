@@ -1,18 +1,17 @@
 // Imported Images in a Array by giving complete url
-var imges = ['img/1.png', 'img/2.png'];
+var imges = ['img/1.png', 'img/2.png', 'img/3.png', 'img/4.png', 'img/5.png', 'img/6.png', 'img/7.png', 'img/8.png'];
 
 var landing_page = "https://clientefavoritofordsp.com/?utm_source=NBids&utm_medium=bannerinterativo&utm_campaign=ABRADIF_Junho"
 
-var output = document.getElementById('output');
 
+var output = document.getElementById('output');
 openfile(imges[0]);
-//APICall("impression");
+
 
 // adding Event Listener
 document.getElementById("output").addEventListener('click', function() {
                     //console.log('Click');
                     clickpattern();});
-
 
 
 // Opening a  file
@@ -21,11 +20,12 @@ function openfile(filepath){
     //console.log("Current Img URL = ", output.src);
 };
 
+
 // click count but it refreshes again as per page loads
 function APICall(n){
   // console.log(n,"no")
   var x =JSON.stringify({ key:n})
-  fetch('https://demo.infuseads.com:8081/core/key-count/?id=2', {
+  fetch('https://demo.infuseads.com:8081/core/key-count/?id=11', {
     method: 'POST',
     body: x,
     headers: {
@@ -47,7 +47,7 @@ function APICall(n){
 
 window.onload = function(){
   var x =JSON.stringify({ key:"impression"})
-  fetch('https://demo.infuseads.com:8081/core/key-count/?id=2', {
+  fetch('https://demo.infuseads.com:8081/core/key-count/?id=11', {
     method: 'POST',
     body: x,
     headers: {
@@ -67,8 +67,37 @@ window.onload = function(){
 }
 
 function pg2func(op){
+
+    var blue = document.getElementById("blue");
+    blue.style = "position: absolute;top: 329px;left: 50px;height: 29px;background: transparent;width: 33px;border-radius: 2%;border: 1px solid transparent;";
+    blue.onclick= function(){APICall("page2leftkey1"); op.src = imges[1];};
+
+    var red = document.getElementById("red");
+    red.style = "position: absolute;top: 329px;left: 83px;height: 29px;background: transparent;width: 33px;border-radius: 2%;border: 1px solid transparent;";
+    red.onclick= function(){APICall("page2leftkey2"); op.src = imges[2];};
+
+    var black = document.getElementById("black");
+    black.style = "position: absolute;top: 329px;left: 113px;height: 29px;background: transparent;width: 33px;border-radius: 2%;border: 1px solid transparent;";
+    black.onclick= function(){APICall("page2leftkey3"); op.src = imges[3];};
+
+    var maroon = document.getElementById("maroon");
+    maroon.style = "position: absolute;top: 329px;left: 144px;height: 29px;background: transparent;width: 33px;border-radius: 2%;border: 1px solid transparent;";
+    maroon.onclick= function(){APICall("page2rightkey1"); op.src = imges[4];};
+
+    var darkgrey = document.getElementById("darkgrey");
+    darkgrey.style = "position: absolute;top: 329px;left: 175px;height: 29px;background: transparent;width: 33px;border-radius: 2%;border: 1px solid transparent;";
+    darkgrey.onclick= function(){APICall("page2rightkey2"); op.src = imges[5];};
+
+    var white = document.getElementById("white");
+    white.style = "position: absolute;top: 329px;left: 206px;height: 29px;background: transparent;width: 30px;border-radius: 2%;border: 1px solid transparent;";
+    white.onclick= function(){APICall("page2rightkey3"); op.src = imges[6];};
+
+    var grey = document.getElementById("grey");
+    grey.style = "position: absolute;top: 329px;left: 236px;height: 29px;background: transparent;width: 31px;border-radius: 2%;border: 1px solid transparent;";
+    grey.onclick= function(){APICall("page4"); op.src = imges[7];};
+
     var knowmore = document.getElementById("knowmore");
-    knowmore.style = "position: absolute;top: 710px;left: 513px;height: 65px;background: transparent;width: 220px;border-radius: 2%;border: 1px solid transparent;";
+    knowmore.style = "position: absolute;top: 395px;left: 81px;height: 44px;background: transparent;width: 147px;border-radius: 2%;border: 1px solid transparent;";
     knowmore.onclick= function(){APICall("page3"); window.open(landing_page)};
 };
 
